@@ -1,12 +1,12 @@
-import image as img
-import graph
+from image import Image
+from graph import Graph
 from prim import Prim
 
 if __name__ == "__main__":
     #cargamos la imagen
-    image  = img.Image('img/mapa.png')
+    image  = Image('img/mapa.png')
     #iniciamo el grafo "recibe la imagen"
-    graph  = graph.Graph(image)
+    graph  = Graph(image)
     #creamos los vertices
     graph.createVertexs()
     #creamos las aristas
