@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from math import sqrt
 
 
 
@@ -112,8 +113,20 @@ class Edge:
     def __init__(self, vo, vd):
         self.vo = vo
         self.vd = vd
-        self.weight = 0
+        self.weight = distance(vo, vd)
 
+
+
+def distance(vo, vd):
+    x1 = vo.value['x']
+    y1 = vo.value['y']
+    x2 = vd.value['x']
+    y2 = vd.value['y']
+
+    return sqrt(
+        abs(x1 - x2) ** 2 +
+        abs(y1 - y2) ** 2
+    )
 
 
 if __name__ == "__main__":
