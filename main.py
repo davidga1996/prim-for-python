@@ -22,7 +22,7 @@ if __name__ == "__main__":
     prim = Prim(graph)
 
     #ejecutamos prim "aun no creado"
-    #prim.create()
+    prim.create()
 
     #prim cargar una lista de aristas al grafo
     #esta funcion dara error si no se ejecuta la linea 22

@@ -88,7 +88,7 @@ class Graph:
 
     def drawPrim(self):
         for e in self.prim:
-            cv2.line(self.imgf, (e.vo.value['x'], e.vo.value['y']), (e.vd.value['x'], e.vd.value['y']), (0,255,0), 1)
+            cv2.line(self.imgf, (e.vo.value['x'], e.vo.value['y']), (e.vd.value['x'], e.vd.value['y']), (0,0,255), 1)
 
 
     def showMap(self):
@@ -107,6 +107,8 @@ class Vertex:
     def addEdge(self, edge):
         self.edges.append(edge)
 
+    def __str__(self):
+        return "[" + str(self.value['x']) + ", " + str(self.value['y']) + "]"
 
 
 class Edge:
@@ -115,7 +117,13 @@ class Edge:
         self.vd = vd
         self.weight = distance(vo, vd)
 
+    def __str__(self):
+        o = str(self.vo.value['x']) + ":" + str(self.vo.value['y'])
+        d = str(self.vd.value['x']) + ":" + str(self.vd.value['y'])
+        return "[" + o + ", " + d  + " -> " + str(self.weight) + "]"
 
+    def __repr__(self):
+        return "\n" + self.__str__()
 
 def distance(vo, vd):
     x1 = vo.value['x']
